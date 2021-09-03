@@ -36,9 +36,7 @@ Things you may want to cover:
 | first_name         | string | null: false               |
 | last_name_kana     | string | null: false               |
 | first_name_kana    | string | null: false               |
-| birth_year         | string | null: false               |
-| birth_month        | string | null: false               |
-| birth_day          | string | null: false               |
+| birthday           | date   | null: false               |
 
 ### Association
 
@@ -48,29 +46,30 @@ Things you may want to cover:
 
 ## items テーブル
 
-| Colum               | Type   | Options     |
-| ------------------- | ------ | ----------- |
-| image               | text   | null: false |
-| name                | string | null: false |
-| description         | text   | null: false |
-| category            | string | null: false |
-| condition           | string | null: false |
-| shipping_cost_payer | string | null: false |
-| shipping_area       | string | null: false |
-| shipping_days       | string | null: false |
-| price               | integer| null: false |
+| Colum                  | Type      | Options          |
+| ---------------------- | --------- | -----------------|
+| name                   | string    | null: false      |
+| description            | text      | null: false      |
+| category_id            | integer   | null: false      |
+| condition_id           | integer   | null: false      |
+| shipping_cost_payer_id | integer   | null: false      |
+| prefecture_id          | integer   | null: false      |
+| shipping_days_id       | integer   | null: false      |
+| price                  | integer   | null: false      |
+| user                   | references| foreign_key: true|
 
 ### Association
 
 - belongs_to :user
-- has_one    :purchase_records
+- has_one    :purchase_record
 
 ## purchase_records テーブル
 
-| Colum | Type       | Options |
-| ----- | ---------- | ------- |
-| user  | references |         |
-| item  | references |         |
+| Colum   | Type       | Options           |
+| ------- | ---------- | ----------------- |
+| user    | references | foreign_key: true |
+| item    | references | foreign_key: true |
+| address | references | foreign_key: true |
 
 ### Association
 
@@ -83,10 +82,10 @@ Things you may want to cover:
 | Colum         | Type   | Options     |
 | ------------- | ------ | ----------- |
 | postal_code   | string | null: false |
-| prefecture    | string | null: false |
+| prefecture_id | integer| null: false |
 | city          | string | null: false |
 | street_number | string | null: false |
-| building      | string | null: false |
+| building      | string |             |
 | phone_number  | string | null: false |
 
 ### Association
