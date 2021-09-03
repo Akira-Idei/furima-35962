@@ -69,25 +69,25 @@ Things you may want to cover:
 | ------- | ---------- | ----------------- |
 | user    | references | foreign_key: true |
 | item    | references | foreign_key: true |
-| address | references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :address
+- has_one    :address
 
 ## addresses テーブル
 
-| Colum         | Type   | Options     |
-| ------------- | ------ | ----------- |
-| postal_code   | string | null: false |
-| prefecture_id | integer| null: false |
-| city          | string | null: false |
-| street_number | string | null: false |
-| building      | string |             |
-| phone_number  | string | null: false |
+| Colum           | Type      | Options           |
+| --------------- | --------- | ----------------- |
+| postal_code     | string    | null: false       |
+| prefecture_id   | integer   | null: false       |
+| city            | string    | null: false       |
+| street_number   | string    | null: false       |
+| building        | string    |                   |
+| phone_number    | string    | null: false       |
+| purchase_record | references| foreign_key: true |
 
 ### Association
 
-- has_many :purchase_records
+- belongs_to :purchase_records
