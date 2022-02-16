@@ -11,6 +11,9 @@ class User < ApplicationRecord
   validates :first_name_kana, presence: true
   validates :birthday, presence: true
 
+  has_many :items
+  has_many :purchase_records
+
   with_options format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i } do
     validates :password
   end
