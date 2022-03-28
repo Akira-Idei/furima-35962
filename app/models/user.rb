@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates :birthday, presence: true
 
   has_many :items
-  has_many :purchase_records
+  # has_many :purchase_records 今後実装予定
 
   with_options format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i } do
     validates :password
