@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+
   end
 
   def create
@@ -21,11 +22,13 @@ class ItemsController < ApplicationController
   end
 
   def show
-
   end
 
   def edit
-
+    @item = Item.find(params[:id])
+    if @item.purchase_record
+      redirect_to root_path
+    end
   end
 
   def update
