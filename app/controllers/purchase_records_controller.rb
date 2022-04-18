@@ -38,10 +38,7 @@ class PurchaseRecordsController < ApplicationController
   end 
 
   def move_to_root
-    if @item.purchase_record
-      redirect_to root_path
-    end
-    if current_user.id == @item.user.id
+    if current_user.id == @item.user.id || @item.purchase_record
       redirect_to root_path
     end
   end
